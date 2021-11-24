@@ -109,9 +109,9 @@ public class PlayerController {
             for (GameType g : games)
                 if (game.equals(g.getName().toUpperCase())) {
                     if (posts.available()) {
-                        print("\t\t\t\t\t********************************** POST AVAILABLE NOW **********************************");
-                        print("\t\t\t\t\tPost Number : " + posts.getNumberPost() + "\n\t\t\t\t\tGames : " + posts.getGamesType() + " \n\t\t\t\t\tDisplay type : " + posts.getTypeDisplay() + " \n\t\t\t\t\tPlay type : " + posts.getTypeEng() + "\n\t\t\t\t\t" + posts.isAvailable());
-                        print("\t\t\t\t\t**********************************************************************************");
+                        print("\n********************************** POST AVAILABLE NOW **********************************");
+                        print("Post Number : " + posts.getNumberPost() + "\n\t\t\t\t\tGames : " + posts.getGamesType() + " \n\t\t\t\t\tDisplay type : " + posts.getTypeDisplay() + " \n\t\t\t\t\tPlay type : " + posts.getTypeEng() + "\n\t\t\t\t\t" + posts.isAvailable());
+                        print("**********************************************************************************\n");
                         postFind.add(posts);
                     } else
                         print("Post Number : " + posts.getNumberPost()+" is not available for now");
@@ -120,10 +120,10 @@ public class PlayerController {
 
     }
     public void showListPlayer(){
-        print("----------------------------------------------{ List Of Players }----------------------------------------------");
+        print("\n\n----------------------------------------------{ List Of Players }----------------------------------------------");
         for (Person p : personArrayList)
-            print("|\t\t\t\t\t\t\t Code Game : "+p.getCodeGame()+" Name : " + p.getFirsName()+" Last Name : "+p.getLastName() + " "+ this.packGame );
-        print("\t\t----------------------------------------------{ }----------------------------------------------");
+            print("|\t\t\t\t\t\t\t Code Game : "+p.getCodeGame()+"\nName : " + p.getFirsName()+"\nLast Name : "+p.getLastName() + "\n"+ this.packGame + "\n");
+        print("\t\t---------------------------------------------------------------------------------------------------------------");
 
     }
 
@@ -158,11 +158,11 @@ public class PlayerController {
     }
 
     public void listGame(){
-        print("\t\t\t\t\t************************************** LIST GAME *********************************");
+        print("################################## LIST GAME ##################################");
         for (String game : hashListGame) {
-            print("\t\t\t\t\t**\t\t\t\t\t\t\t\t\t\t " + game.toUpperCase() );
+            print("**\t\t\t\t\t\t " + game.toUpperCase() );
         }
-        print("\t\t\t\t\t**********************************************************************************");
+        print("###############################################################################\n");
     }
 
 
@@ -194,7 +194,7 @@ public class PlayerController {
                         print(postFind.get(0).getNumberPost());
                         break;
                     } else {
-                        print("This Post is not in chose !!!");
+                        print("This Post is not chosen !!!");
                     }
                 }
 
@@ -204,15 +204,16 @@ public class PlayerController {
                 printl("Last Name : ");
                 String lastname = scanner.next();
 
-                print("***************************** { Chose Pack Period } *****************************");
-                print("***************************** { 1 - "+ PackGame.HALF_HOUR +" } *****************************");
-                print("***************************** { 2 - "+ PackGame.HOUR+" } *****************************");
-                print("***************************** { 3 - "+ PackGame.TWO_HOURS+" } *****************************");
-                print("***************************** { 4 - "+ PackGame.FAVE_HOURS+" } *****************************");
-                print("***************************** { 5 - "+ PackGame.ALL_JOURNEY+" } *****************************");
+                print("############################ { Chose Pack Period } ############################");
+                print(" { 1 - "+ PackGame.HALF_HOUR +" } ");
+                print(" { 2 - "+ PackGame.HOUR+" } ");
+                print(" { 3 - "+ PackGame.TWO_HOURS+" } ");
+                print(" { 4 - "+ PackGame.FAVE_HOURS+" } ");
+                print(" { 5 - "+ PackGame.ALL_JOURNEY+" } ");
+                print("###############################################################################");
 
                 while (true){
-                    printl("Puck number  : ");
+                    printl("\nPack number  : ");
                     int packNumber = scanner.nextInt();
                     switch(packNumber){
                         case 1 : packGame = PackGame.HALF_HOUR;
@@ -240,7 +241,7 @@ public class PlayerController {
 
                 while (true) {
                     try{
-                        print("********* Enter start time ********* ");
+                        print("\n\n############################ Enter start time ############################ ");
                         System.out.print("Enter HOUR : ");
                         String hourP = scanner.next();
 
@@ -268,13 +269,13 @@ public class PlayerController {
                         print(e.getMessage());
                     }
 
-                    print("**********************************************************************************************");
+                    print("####################################################################################");
                     print("|\t\t\t\t\t\t\t # Name       : "+name);
                     print("|\t\t\t\t\t\t\t # Last Name  : "+lastname);
                     print("|\t\t\t\t\t\t\t # Game chose : "+ game);
                     print("|\t\t\t\t\t\t\t # Pack Time  : "+ packGame);
                     print("|\t\t\t\t\t\t\t # Post chose : Post NB° "+ postFind.get(0).getNumberPost() +" | Display "+ postFind.get(0).getTypeDisplay()+" | Play type " + postFind.get(0).getTypeEng() );
-                    print("***********************************************************************************************");
+                    print("####################################################################################");
 
                     personArrayList.add(new Person(name,lastname,game,time,postFind.get(0),packGame));
                     MoneyBox.setTotal(packGame.getPrice());
@@ -328,7 +329,7 @@ public class PlayerController {
                     case  "EXIT" :
                         break;
                     default:
-                        print("This chose not in menu !!! "+chose);
+                        print("Operation not found !!! "+chose);
                 }
             } catch (Exception e) {
                 print("Error !!");
