@@ -15,7 +15,6 @@ public class Post {
     private boolean available ;
     private ArrayList<GameType>  games ;
 
-    public Post(){}
 
     public Post(int numberPost,String typeEng,String typeDisplay,ArrayList<GameType> games,boolean available){
         this.numberPost = numberPost;

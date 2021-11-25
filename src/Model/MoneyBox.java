@@ -6,7 +6,6 @@ public class MoneyBox {
 
     private static float total;
 
-    public MoneyBox(){}
     public MoneyBox(float money){
         setTotal(money);
     }

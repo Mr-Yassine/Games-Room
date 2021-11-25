@@ -6,7 +6,7 @@ import static Helpers.Helper.*;
 public class MenuHelper {
 
     public static void menu(){
-        print("#####################{ WELCOME TO OUR GAMES HOUSE }#####################");
+        print("\n#####################{ WELCOME TO OUR GAMES HOUSE }#####################");
         print("1- Add player ");
         print("2- View players");
         print("3- View post ");

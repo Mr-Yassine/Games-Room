@@ -204,10 +204,10 @@ public class PlayerController {
 
 
     public void showListPlayer(){
-        print("\n\n----------------------------------------------{ List Of Players }----------------------------------------------");
+        print("\n----------------------------------------------{ List Of Players }----------------------------------------------");
         for (Person p : personArrayList)
-            print("Code Game : "+p.getCodeGame()+"\nName : " + p.getFirsName()+"\nLast Name : "+p.getLastName() + "\n"+ this.packGame + "\n");
-        print("-------------------------------------------------------------------------------------------------------------------");
+            print("Code Game : "+p.getCodeGame()+"\nName : " + p.getFirsName()+"\nLast Name : "+p.getLastName() + "\n"+ this.packGame );
+        print("---------------------------------------------------------------------------------------------------------------2\n");
 
     }
 
@@ -231,9 +231,9 @@ public class PlayerController {
     public void showPosts(){
         int cmp = 0;
         for (Post p1 : postArrayList) {
-            print("\t\t\t\t\t********************************** POST NUMBER "+ (cmp+1) + "**********************************");
-            print("\t\t\t\t\tPost Number : " + p1.getNumberPost() + "\n\t\t\t\t\tGames : " + p1.getGamesType() + " \n\t\t\t\t\tDisplay type : " + p1.getTypeDisplay() + " \n\t\t\t\t\tPlay type : " + p1.getTypeEng() + "\n\t\t\t\t\t" + p1.isAvailable());
-            print("\t\t\t\t\t***********************************************************************************************");
+            print("**************************************** POST NUMBER "+ (cmp+1) + " ****************************************");
+            print("\tPost Number : " + p1.getNumberPost() + "\n\n\tGames : " + p1.getGamesType() + " \n\tDisplay type : " + p1.getTypeDisplay() + " \n\tPlay type : " + p1.getTypeEng() + "\n\t" + p1.isAvailable());
+            print("***********************************************************************************************\n");
             cmp++;
         }
     }
@@ -331,7 +331,7 @@ public class PlayerController {
         String game ;
         do{
             scanner.nextLine();
-            print("chose a game : ");
+            print("choose a game : ");
             game = scanner.nextLine();
             if (!searchGame(game.toUpperCase()))
                 print("This game is not exist in list game !!! try again ");
@@ -339,12 +339,12 @@ public class PlayerController {
 
 
         searchPost(game.toUpperCase());
-        print(" Number of post available is : "+postFind.size());
+        print("Number of post available is : "+postFind.size());
         int numberPost ;
         try {
             if(postFind.size() > 0) {
                 while (true) {
-                    printl("Chose number post of this post available : ");
+                    printl("Choose a post from the list of the available ones : ");
                     numberPost = scanner.nextInt();
                     if (checkPost(numberPost)) {
                         print(postFind.get(0).getNumberPost());
@@ -354,13 +354,13 @@ public class PlayerController {
                     }
                 }
 
-                printl("First Name : ");
+                printl("\nFirst Name : ");
                 String name = scanner.next();
 
                 printl("Last Name : ");
                 String lastname = scanner.next();
 
-                print("############################ { Chose Pack Period } ############################");
+                print("\n############################ { Chose Pack Period } ############################");
                 print(" { 1 - "+ PackGame.HALF_HOUR +" } ");
                 print(" { 2 - "+ PackGame.HOUR+" } ");
                 print(" { 3 - "+ PackGame.TWO_HOURS+" } ");
@@ -511,7 +511,7 @@ public class PlayerController {
                         break;
                     case "5":
                         print("View Money Box");
-                        print(" TOTAl MONEY GET IS :" + MoneyBox.getTotal() + " DH");
+                        print("TOTAl MONEY GET IS :" + MoneyBox.getTotal() + " DH");
                         break;
                     case  "EXIT" :
                         break;

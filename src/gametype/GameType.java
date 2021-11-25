@@ -1,6 +1,5 @@
 package gametype;
 
-import java.util.*;
 
 public class GameType {
     private String name;
@@ -8,6 +7,7 @@ public class GameType {
     public GameType(String name){
         this.name = name;
     }
+
     public String getName() {
         return name.toUpperCase();
     }

@@ -5,7 +5,7 @@ import Enums.PackGame;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 
 
@@ -20,7 +20,6 @@ public class Person  {
     private String codeGame;
     private PackGame timePeriod;
 
-    public Person(){}
     public Person(String firstName,String lastName , String game,LocalTime dateStart,Post post,PackGame timePeriod){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,6 +67,9 @@ public class Person  {
     }
 
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
     public String getCodeGame() {
         return codeGame;
