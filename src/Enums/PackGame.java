@@ -16,6 +16,8 @@ public enum PackGame {
         this.duration = duration;
         this.price = price;
     }
+
+    
     public Integer getDuration() {
         return duration;
     }

@@ -66,6 +66,9 @@ public class Person  {
     public void setPost(Post post) {
         this.post = post;
     }
+
+
+
     public String getCodeGame() {
         return codeGame;
     }

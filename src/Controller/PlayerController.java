@@ -13,10 +13,10 @@ import javax.lang.model.type.NullType;
 
 import static Helpers.Helper.*;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 
 public class PlayerController {
@@ -32,6 +32,13 @@ public class PlayerController {
     public  HashSet<String> hashListGame = new HashSet<>();
 
 
+
+
+
+
+
+
+
     public void fillListPost(){
         postArrayList.add(new Post(1,"PlayStation5","Samsung",arrayListGame() ,true));
         postArrayList.add(new Post(2,"PlayStation5","Asus",arrayListGame() ,true));
@@ -40,8 +47,20 @@ public class PlayerController {
         postArrayList.add(new Post(5,"Xbox","Asus",arrayListGame() ,true));
         postArrayList.add(new Post(6,"Nintendo switch","Dell",arrayListGame() ,true));
         postArrayList.add(new Post(7,"Nintendo switch","Dell",arrayListGame() ,true));
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void fillPostNotAvailable(){
 
         for (Post posts : postArrayList) {
@@ -59,6 +78,22 @@ public class PlayerController {
          */
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void fillListGame(){
         gameTypeArrayList.add(new Sport("FIFA2021"));
@@ -79,6 +114,15 @@ public class PlayerController {
     }
 
 
+
+
+
+
+
+
+
+
+
     public ArrayList<GameType> arrayListGame(){
 
         ArrayList<GameType> gameReturn = new ArrayList<>();
@@ -90,6 +134,19 @@ public class PlayerController {
         return  gameReturn;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public boolean searchGame(String game){
 
         for(String games : hashListGame)
@@ -97,8 +154,20 @@ public class PlayerController {
                 return true;
         return false;
 
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void searchPost(String game){
 
         ArrayList<Post> post = new ArrayList<>();
@@ -111,31 +180,76 @@ public class PlayerController {
                     if (posts.available()) {
                         print("\n********************************** POST AVAILABLE NOW **********************************");
                         print("Post Number : " + posts.getNumberPost() + "\n\t\t\t\t\tGames : " + posts.getGamesType() + " \n\t\t\t\t\tDisplay type : " + posts.getTypeDisplay() + " \n\t\t\t\t\tPlay type : " + posts.getTypeEng() + "\n\t\t\t\t\t" + posts.isAvailable());
-                        print("**********************************************************************************\n");
+                        print("******************************************************************************************\n");
                         postFind.add(posts);
                     } else
-                        print("Post Number : " + posts.getNumberPost()+" is not available for now");
+                        print("Post Number : " + posts.getNumberPost()+" is not available for now\n");
                 }
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void showListPlayer(){
         print("\n\n----------------------------------------------{ List Of Players }----------------------------------------------");
         for (Person p : personArrayList)
-            print("|\t\t\t\t\t\t\t Code Game : "+p.getCodeGame()+"\nName : " + p.getFirsName()+"\nLast Name : "+p.getLastName() + "\n"+ this.packGame + "\n");
-        print("\t\t---------------------------------------------------------------------------------------------------------------");
+            print("Code Game : "+p.getCodeGame()+"\nName : " + p.getFirsName()+"\nLast Name : "+p.getLastName() + "\n"+ this.packGame + "\n");
+        print("-------------------------------------------------------------------------------------------------------------------");
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void showPosts(){
         int cmp = 0;
         for (Post p1 : postArrayList) {
             print("\t\t\t\t\t********************************** POST NUMBER "+ (cmp+1) + "**********************************");
             print("\t\t\t\t\tPost Number : " + p1.getNumberPost() + "\n\t\t\t\t\tGames : " + p1.getGamesType() + " \n\t\t\t\t\tDisplay type : " + p1.getTypeDisplay() + " \n\t\t\t\t\tPlay type : " + p1.getTypeEng() + "\n\t\t\t\t\t" + p1.isAvailable());
-            print("\t\t\t\t\t**********************************************************************************");
+            print("\t\t\t\t\t***********************************************************************************************");
             cmp++;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void fillGames(){
 
@@ -145,6 +259,19 @@ public class PlayerController {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public boolean checkPost(int nb_post){
 
@@ -157,13 +284,41 @@ public class PlayerController {
         return false;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void listGame(){
-        print("################################## LIST GAME ##################################");
+        print("\n\n################################## LIST GAME ##################################");
         for (String game : hashListGame) {
             print("**\t\t\t\t\t\t " + game.toUpperCase() );
         }
         print("###############################################################################\n");
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -175,7 +330,8 @@ public class PlayerController {
 
         String game ;
         do{
-            printl("chose a game : ");
+            scanner.nextLine();
+            print("chose a game : ");
             game = scanner.nextLine();
             if (!searchGame(game.toUpperCase()))
                 print("This game is not exist in list game !!! try again ");
@@ -194,7 +350,7 @@ public class PlayerController {
                         print(postFind.get(0).getNumberPost());
                         break;
                     } else {
-                        print("This Post is not chosen !!!");
+                        print("The GAME chosen is not available in this Post !!!");
                     }
                 }
 
@@ -269,7 +425,16 @@ public class PlayerController {
                         print(e.getMessage());
                     }
 
+
+
+                    LocalDateTime timeone = LocalDateTime.now();
+                    DateTimeFormatter ltf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+                    String Code_Game = "N°"+timeone.format(ltf);
+
+
+
                     print("####################################################################################");
+                    print("|\t\t\t\t\t\t\t # Code Game       : " + Code_Game);
                     print("|\t\t\t\t\t\t\t # Name       : "+name);
                     print("|\t\t\t\t\t\t\t # Last Name  : "+lastname);
                     print("|\t\t\t\t\t\t\t # Game chose : "+ game);
@@ -278,8 +443,18 @@ public class PlayerController {
                     print("####################################################################################");
 
                     personArrayList.add(new Person(name,lastname,game,time,postFind.get(0),packGame));
+
+
+                    for (Post p : postArrayList)
+                        if(postFind.get(0).getNumberPost() == p.getNumberPost())
+                            p.setAvailable(false);
+
+
+
                     MoneyBox.setTotal(packGame.getPrice());
                     showListPlayer();
+                    fillPostNotAvailable();
+                    postFind.clear();
                     break;
                 }
 
@@ -289,6 +464,18 @@ public class PlayerController {
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public  void switchMethod(){
         fillListGame();
